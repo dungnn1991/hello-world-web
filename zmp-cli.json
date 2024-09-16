@@ -1,0 +1,18 @@
+{
+  "cwd": "/Users/ductunghoang/SourceCode/VNG-MiniApp/zalominiappanalytics",
+  "name": "ZaloMiniAppAnalytics",
+  "framework": "react-typescript",
+  "cssPreProcessor": "scss",
+  "includeTailwind": true,
+  "package": "zmp-ui",
+  "newProject": true,
+  "template": "single-view",
+  "theming": {
+    "customColor": false,
+    "color": "#007aff",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": false,
+    "useUiKits": true
+  }
+}

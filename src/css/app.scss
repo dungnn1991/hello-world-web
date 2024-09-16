@@ -1,0 +1,156 @@
+
+.zaui-page {
+  padding-bottom: calc(var(--zaui-safe-area-bottom, 16px) + 16px);
+}
+
+.page {
+
+  margin-top: 45px;
+}
+
+.section-container {
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.zaui-list-item {
+  cursor: pointer;
+}
+
+
+ /* Hide scrollbar for Chrome, Safari and Opera */
+ .no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.zaui-input-affix-wrapper {
+  background-color: #F7F7F8;
+  border-color: #E9EBED;
+  border-radius: 0.75rem;
+  height: 2.7rem;
+
+}
+
+.zaui-picker-input input {
+  font-weight: 600;
+}
+
+@keyframes scale-y {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.animation-scale-y {
+  animation-name: scale-y;
+  animation-duration: 1s;
+  animation-direction: normal;
+  transform-origin: bottom;
+}
+
+.zaui-sheet-content {
+  max-height: 60vh !important;
+}
+
+.zaui-header {
+  padding-right: 6rem !important;
+  padding-left: 1rem !important;
+  height: calc(var(--zaui-safe-area-inset-top, 0px) + 48px)
+}
+
+.zaui-header .zaui-header-title {
+  font-weight: 700;
+
+}
+
+.app-item {
+  scroll-margin: 10rem;
+}
+
+.zaui-input-label {
+  color: #767A7F;
+}
+
+.zaui-btn-secondary:not(:disabled) {
+  border: 1px solid #E9EBED;
+}
+
+.zaui-input {
+  font-size: 15px;
+}
+
+.zaui-picker-scroller .zaui-picker-item-selected {
+  color: #FF66A9;
+}
+
+.icon {
+  display: inherit;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-16 {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-32 {
+  width: 32px;
+  height: 32px;
+}
+
+.icon-40 {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-42 {
+  width: 42px;
+  height: 42px;
+}
+
+@keyframes scale-x {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animation-scale-x {
+  animation-name: scale-x;
+  animation-duration: 1s;
+  animation-direction: normal;
+  transform-origin: left top;
+}
+
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.fade-exit {
+  opacity: 0;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}

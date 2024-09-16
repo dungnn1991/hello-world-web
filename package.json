@@ -1,0 +1,63 @@
+{
+  "name": "zalominiappanalytics",
+  "private": true,
+  "version": "1.0.0",
+  "description": "ZaloMiniAppAnalytics",
+  "repository": "",
+  "license": "UNLICENSED",
+  "browserslist": [
+    "Android >= 5",
+    "IOS >= 9.3",
+    "Edge >= 15",
+    "Safari >= 9.1",
+    "Chrome >= 49",
+    "Firefox >= 31",
+    "Samsung >= 5"
+  ],
+  "scripts": {
+    "gen:rest": "swagger-typescript-api --axios -p https://dev-miniapp-analytics.api.zalo.me/docs -o ./src/services -n rest.ts",
+    "start": "zmp start",
+    "deploy": "zmp deploy",
+    "build:css": "postcss src/css/tailwind.css -o src/css/styles.css"
+  },
+  "dependencies": {
+    "@tanstack/query-core": "^5.17.19",
+    "@types/react-transition-group": "^4.4.10",
+    "axios": "^1.6.5",
+    "classnames": "^2.5.1",
+    "date-fns": "^3.2.0",
+    "jotai": "^2.6.1",
+    "jotai-tanstack-query": "^0.8.2",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-apexcharts": "^1.4.1",
+    "react-countup": "^6.5.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.1",
+    "react-transition-group": "^4.4.5",
+    "styled-components": "^6.1.8",
+    "tailwind.macro": "^0.5.10",
+    "twin.macro": "^3.4.0",
+    "wonka": "^6.3.4",
+    "zmp-developer-token": "^3.1.0",
+    "zmp-sdk": "^2.33.1",
+    "zmp-ui": "^1.8.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react-refresh": "^1.3.6",
+    "autoprefixer": "^10.4.16",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^8.3.1",
+    "postcss-preset-env": "^6.7.0",
+    "sass": "^1.69.5",
+    "swagger-typescript-api": "^13.0.3",
+    "tailwindcss": "^3.4.0",
+    "vite": "^2.6.14",
+    "vite-plugin-babel-macros": "^1.0.6"
+  }
+}

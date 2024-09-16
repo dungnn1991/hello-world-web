@@ -1,41 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
-    <input type="file" id="fileInput" accept="image/*">
-    <button onclick="uploadPhoto()">Upload Photo</button>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
 
-    <script>
-        function uploadPhoto() {
-            const fileInput = document.getElementById('fileInput');
-            const file = fileInput.files[0];
-            if (!file) {
-                alert('Please select a file first.');
-                return;
-            }
+    <meta name="theme-color" content="#007aff" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link rel="icon" href="/src/static/icons/favicon.png" />
+    <title>ZaloMiniAppAnalytics</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built script files will be auto injected -->
 
-            const formData = new FormData();
-            formData.append('file', file);
-
-            fetch('https://mini.tranxuanson.com/api/mini-app/upload', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                alert('File uploaded successfully!');
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('File upload failed.');
-            });
-        }
-    </script>
-</body>
+    <script type="module" src="/src/app.ts"></script>
+  </body>
 </html>
