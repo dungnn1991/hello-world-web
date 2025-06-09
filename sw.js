@@ -1,15 +1,21 @@
+// sw.js
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox-sw.js');
 
 const { registerRoute } = workbox.routing;
-const { CacheFirst } = workbox.strategies;
-const { ExpirationPlugin } = workbox.expiration;
-const { CacheableResponsePlugin } = workbox.cacheableResponse;
+const { StaleWhileRevalidate } = workbox.strategies;
+const { CacheableResponsePlugin, ExpirationPlugin } = workbox.cacheableResponse;
 
-// Cấu hình cache 5 phút
+// Cấu hình cache 5 phút với validation
 const cacheConfig = {
     cacheName: 'external-resources',
     plugins: [
-        new CacheableResponsePlugin({ statuses: [0, 200] }),
+        new CacheableResponsePlugin({
+            statuses: [0, 200],
+            headers: {
+                'ETag': true,
+                'Last-Modified': true
+            }
+        }),
         new ExpirationPlugin({
             maxAgeSeconds: 300, // 5 phút
             purgeOnQuotaError: true
@@ -17,16 +23,24 @@ const cacheConfig = {
     ]
 };
 
-// Đăng ký route cho từng resource
-[
-    'https://h5.zadn.vn/static/fonts/ZMPIcons-Regular-v3.woff2',
-    'https://h5.zdn.vn/static/js/custom-element.js',
-    'https://h5.zdn.vn/static/js/getOwnPropertyDescriptors.js',
-    'https://h5.zdn.vn/static/zmp-modules/extend-mini-app-index/index.js',
-    'https://photo-logo-mapps.zadn.vn/1b6f0930af75462b1f64.jpg'
-].forEach(url => {
+// Danh sách domain cần cache
+const targetDomains = [
+    'https://h5.zadn.vn',
+    'https://h5.zdn.vn',
+    'https://photo-logo-mapps.zadn.vn'
+];
+
+// Đăng ký route cho từng domain
+targetDomains.forEach(domain => {
     registerRoute(
-        new RegExp(url.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')),
-        new CacheFirst(cacheConfig)
+        ({url}) => url.origin === domain,
+        new StaleWhileRevalidate(cacheConfig)
     );
+});
+
+// Xử lý service worker update
+self.addEventListener('message', (event) => {
+    if (event.data.type === 'SKIP_WAITING') {
+        self.skipWaiting();
+    }
 });
