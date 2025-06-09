@@ -1,39 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Workbox Caching Demo</title>
+    <!-- Nhúng font -->
+    <link rel="stylesheet" href="https://h5.zadn.vn/static/fonts/ZMPIcons-Regular-v3.woff2">
+    
+    <!-- Nhúng các script -->
+    <script src="https://h5.zdn.vn/static/js/custom-element.js"></script>
+    <script src="https://h5.zdn.vn/static/js/getOwnPropertyDescriptors.js"></script>
+    <script src="https://h5.zdn.vn/static/zmp-modules/extend-mini-app-index/index.js"></script>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <input type="file" id="fileInput" accept="image/*">
-    <button onclick="uploadPhoto()">Upload Photo</button>
-
+    <h1>Kiểm tra cache Workbox</h1>
     <script>
-        function uploadPhoto() {
-            const fileInput = document.getElementById('fileInput');
-            const file = fileInput.files[0];
-            if (!file) {
-                alert('Please select a file first.');
-                return;
-            }
-
-            const formData = new FormData();
-            formData.append('file', file);
-
-            fetch('https://mini.tranxuanson.com/api/mini-app/upload', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                alert('File uploaded successfully!');
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('File upload failed.');
+        // Đăng ký Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('ServiceWorker registered'))
+                    .catch(err => console.log('ServiceWorker registration failed: ', err));
             });
         }
     </script>
