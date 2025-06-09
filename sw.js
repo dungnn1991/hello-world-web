@@ -22,7 +22,8 @@ const cacheConfig = {
     'https://h5.zadn.vn/static/fonts/ZMPIcons-Regular-v3.woff2',
     'https://h5.zdn.vn/static/js/custom-element.js',
     'https://h5.zdn.vn/static/js/getOwnPropertyDescriptors.js',
-    'https://h5.zdn.vn/static/zmp-modules/extend-mini-app-index/index.js'
+    'https://h5.zdn.vn/static/zmp-modules/extend-mini-app-index/index.js',
+    'https://upload.wikimedia.org/wikipedia/commons/7/74/A-Cat.jpg'
 ].forEach(url => {
     registerRoute(
         new RegExp(url.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')),
